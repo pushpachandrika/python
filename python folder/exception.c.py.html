@@ -1,0 +1,329 @@
+<html>
+<head>
+<title>exception.c.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #7a7e85;}
+.s5 { color: #6aab73;}
+.s6 { color: #5f826b; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+exception.c.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">random</span>
+
+
+<span class="s0">def </span><span class="s1">generate_expression</span><span class="s2">():</span>
+    <span class="s1">num1 </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s3">1</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)</span>
+    <span class="s1">num2 </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s3">0</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)  </span><span class="s4"># for 0 casee</span>
+    <span class="s1">operator </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">choice</span><span class="s2">([</span><span class="s5">'+'</span><span class="s2">, </span><span class="s5">'-'</span><span class="s2">, </span><span class="s5">'*'</span><span class="s2">, </span><span class="s5">'/'</span><span class="s2">])</span>
+    <span class="s1">expression </span><span class="s2">= </span><span class="s5">f&quot;</span><span class="s0">{</span><span class="s1">num1</span><span class="s0">} {</span><span class="s1">operator</span><span class="s0">} {</span><span class="s1">num2</span><span class="s0">}</span><span class="s5">&quot;</span>
+    <span class="s0">return </span><span class="s1">expression</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s0">for </span><span class="s1">_ </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">5</span><span class="s2">):</span>
+        <span class="s1">expression </span><span class="s2">= </span><span class="s1">generate_expression</span><span class="s2">()</span>
+        <span class="s1">result </span><span class="s2">= </span><span class="s1">eval</span><span class="s2">(</span><span class="s1">expression</span><span class="s2">)  </span><span class="s4"># This will raise an error if there  is a division by zero</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Expression: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">} </span><span class="s5">= </span><span class="s0">{</span><span class="s1">result</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+<span class="s0">import </span><span class="s1">random</span>
+
+
+<span class="s0">def </span><span class="s1">generate_expression</span><span class="s2">():</span>
+    <span class="s1">num1 </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s3">1</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)</span>
+    <span class="s1">num2 </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s3">0</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)  </span><span class="s4"># num2 can be 0, which may cause division by zero</span>
+    <span class="s1">operator </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">choice</span><span class="s2">([</span><span class="s5">'+'</span><span class="s2">, </span><span class="s5">'-'</span><span class="s2">, </span><span class="s5">'*'</span><span class="s2">, </span><span class="s5">'/'</span><span class="s2">])</span>
+    <span class="s1">expression </span><span class="s2">= </span><span class="s5">f&quot;</span><span class="s0">{</span><span class="s1">num1</span><span class="s0">} {</span><span class="s1">operator</span><span class="s0">} {</span><span class="s1">num2</span><span class="s0">}</span><span class="s5">&quot;</span>
+    <span class="s0">return </span><span class="s1">expression</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s0">for </span><span class="s1">_ </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">5</span><span class="s2">):</span>
+        <span class="s1">expression </span><span class="s2">= </span><span class="s1">generate_expression</span><span class="s2">()</span>
+        <span class="s0">try</span><span class="s2">:</span>
+            <span class="s1">result </span><span class="s2">= </span><span class="s1">eval</span><span class="s2">(</span><span class="s1">expression</span><span class="s2">)  </span><span class="s4"># to calculate string</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Expression: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">} </span><span class="s5">= </span><span class="s0">{</span><span class="s1">result</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s0">except </span><span class="s1">ZeroDivisionError</span><span class="s2">:  </span><span class="s4"># Catch block for division by zero</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Expression: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">} </span><span class="s5">= Error: Division by zero&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+
+<span class="s0">def </span><span class="s1">method_that_raises_exception</span><span class="s2">():</span>
+    <span class="s4"># This method raises a ZeroDivisionError</span>
+    <span class="s1">result </span><span class="s2">= </span><span class="s3">1 </span><span class="s2">/ </span><span class="s3">0  </span><span class="s4"># Division by zero will raise an exception</span>
+    <span class="s0">return </span><span class="s1">result</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Calling the method that raises an exception...&quot;</span><span class="s2">)</span>
+    <span class="s1">method_that_raises_exception</span><span class="s2">()  </span><span class="s4"># This will raise an exception</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+<span class="s0">import </span><span class="s1">random</span>
+
+
+<span class="s0">def </span><span class="s1">generate_expression</span><span class="s2">():</span>
+    <span class="s1">num1 </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s3">1</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)  </span><span class="s4"># Random number between 1 and 10</span>
+    <span class="s1">num2 </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s3">0</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)  </span><span class="s4"># Random number between 0 and 10 (to allow division by zero)</span>
+    <span class="s1">operator </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">choice</span><span class="s2">([</span><span class="s5">'+'</span><span class="s2">, </span><span class="s5">'-'</span><span class="s2">, </span><span class="s5">'*'</span><span class="s2">, </span><span class="s5">'/'</span><span class="s2">, </span><span class="s5">'('</span><span class="s2">])</span>
+    <span class="s1">expression </span><span class="s2">= </span><span class="s5">f&quot;</span><span class="s0">{</span><span class="s1">num1</span><span class="s0">} {</span><span class="s1">operator</span><span class="s0">} {</span><span class="s1">num2</span><span class="s0">}</span><span class="s5">&quot;</span>
+    <span class="s0">return </span><span class="s1">expression</span>
+
+
+<span class="s0">def </span><span class="s1">evaluate_expression</span><span class="s2">(</span><span class="s1">expression</span><span class="s2">):</span>
+    <span class="s0">return </span><span class="s1">eval</span><span class="s2">(</span><span class="s1">expression</span><span class="s2">)  </span><span class="s4"># Evaluate the expression</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s0">for </span><span class="s1">_ </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">5</span><span class="s2">):</span>
+        <span class="s1">expression </span><span class="s2">= </span><span class="s1">generate_expression</span><span class="s2">()</span>
+        <span class="s0">try</span><span class="s2">:</span>
+            <span class="s1">result </span><span class="s2">= </span><span class="s1">evaluate_expression</span><span class="s2">(</span><span class="s1">expression</span><span class="s2">)</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Expression: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">} </span><span class="s5">= </span><span class="s0">{</span><span class="s1">result</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s0">except </span><span class="s1">ZeroDivisionError</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Expression: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">} </span><span class="s5">= Error: Division by zero&quot;</span><span class="s2">)</span>
+        <span class="s0">except </span><span class="s1">SyntaxError</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Expression: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">} </span><span class="s5">= Error: Invalid syntax&quot;</span><span class="s2">)</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Expression: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">} </span><span class="s5">= An unexpected error occurred: </span><span class="s0">{</span><span class="s1">e</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+
+<span class="s0">def </span><span class="s1">method_that_raises_exception</span><span class="s2">():</span>
+    <span class="s4"># This method raises a ValueError with a custom message</span>
+    <span class="s0">raise </span><span class="s1">ValueError</span><span class="s2">(</span><span class="s5">&quot;This is a custom error message: Something went wrong!&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Calling the method that raises an exception...&quot;</span><span class="s2">)</span>
+    <span class="s1">method_that_raises_exception</span><span class="s2">()  </span><span class="s4"># This will raise an exception</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+<span class="s0">import </span><span class="s1">random</span>
+
+
+<span class="s4"># Define a custom exception</span>
+<span class="s0">class </span><span class="s1">MyCustomError</span><span class="s2">(</span><span class="s1">Exception</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Custom exception class for specific error handling.&quot;&quot;&quot;</span>
+
+    <span class="s0">def </span><span class="s1">__init__</span><span class="s2">(</span><span class="s1">self</span><span class="s2">, </span><span class="s1">message</span><span class="s2">):</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">message </span><span class="s2">= </span><span class="s1">message</span>
+        <span class="s1">super</span><span class="s2">().</span><span class="s1">__init__</span><span class="s2">(</span><span class="s1">self</span><span class="s2">.</span><span class="s1">message</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">generate_random_number</span><span class="s2">():</span>
+    <span class="s6">&quot;&quot;&quot;Function that generates a random number between -10 and 10.&quot;&quot;&quot;</span>
+    <span class="s0">return </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(-</span><span class="s3">10</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)  </span><span class="s4"># Random number between -10 and 10</span>
+
+
+<span class="s0">def </span><span class="s1">check_value</span><span class="s2">(</span><span class="s1">value</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Function that raises MyCustomError if the value is negative.&quot;&quot;&quot;</span>
+    <span class="s0">if </span><span class="s1">value </span><span class="s2">&lt; </span><span class="s3">0</span><span class="s2">:</span>
+        <span class="s0">raise </span><span class="s1">MyCustomError</span><span class="s2">(</span><span class="s5">&quot;Negative values are not allowed!&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s0">try</span><span class="s2">:</span>
+        <span class="s4"># Generate a random number</span>
+        <span class="s1">random_number </span><span class="s2">= </span><span class="s1">generate_random_number</span><span class="s2">()</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Generated random number: </span><span class="s0">{</span><span class="s1">random_number</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+        <span class="s4"># Check the value</span>
+        <span class="s1">check_value</span><span class="s2">(</span><span class="s1">random_number</span><span class="s2">)  </span><span class="s4"># Check the value</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;The number </span><span class="s0">{</span><span class="s1">random_number</span><span class="s0">} </span><span class="s5">is valid.&quot;</span><span class="s2">)</span>
+
+    <span class="s0">except </span><span class="s1">MyCustomError </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Caught an exception: </span><span class="s0">{</span><span class="s1">e</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;An unexpected error occurred: </span><span class="s0">{</span><span class="s1">e</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+<span class="s0">import </span><span class="s1">random</span>
+
+
+<span class="s4"># Define a custom exception</span>
+<span class="s0">class </span><span class="s1">MyCustomError</span><span class="s2">(</span><span class="s1">Exception</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Custom exception class for specific error handling.&quot;&quot;&quot;</span>
+
+    <span class="s0">def </span><span class="s1">__init__</span><span class="s2">(</span><span class="s1">self</span><span class="s2">, </span><span class="s1">message</span><span class="s2">):</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">message </span><span class="s2">= </span><span class="s1">message</span>
+        <span class="s1">super</span><span class="s2">().</span><span class="s1">__init__</span><span class="s2">(</span><span class="s1">self</span><span class="s2">.</span><span class="s1">message</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">generate_random_number</span><span class="s2">():</span>
+    <span class="s6">&quot;&quot;&quot;Function that generates a random number between -10 and 10.&quot;&quot;&quot;</span>
+    <span class="s0">return </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(-</span><span class="s3">10</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)  </span><span class="s4"># Random number between -10 and 10</span>
+
+
+<span class="s0">def </span><span class="s1">check_value</span><span class="s2">(</span><span class="s1">value</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Function that raises MyCustomError if the value is negative.&quot;&quot;&quot;</span>
+    <span class="s0">if </span><span class="s1">value </span><span class="s2">&lt; </span><span class="s3">0</span><span class="s2">:</span>
+        <span class="s0">raise </span><span class="s1">MyCustomError</span><span class="s2">(</span><span class="s5">&quot;Negative values are not allowed!&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s0">try</span><span class="s2">:</span>
+        <span class="s4"># Generate a random number</span>
+        <span class="s1">random_number </span><span class="s2">= </span><span class="s1">generate_random_number</span><span class="s2">()</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Generated random number: </span><span class="s0">{</span><span class="s1">random_number</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+        <span class="s4"># Check the value</span>
+        <span class="s1">check_value</span><span class="s2">(</span><span class="s1">random_number</span><span class="s2">)  </span><span class="s4"># Check the value</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;The number </span><span class="s0">{</span><span class="s1">random_number</span><span class="s0">} </span><span class="s5">is valid.&quot;</span><span class="s2">)</span>
+
+    <span class="s0">except </span><span class="s1">MyCustomError </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Caught an exception: </span><span class="s0">{</span><span class="s1">e</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;An unexpected error occurred: </span><span class="s0">{</span><span class="s1">e</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s0">finally</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">&quot;Execution of the main function is complete.&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+<span class="s0">import </span><span class="s1">random</span>
+
+
+<span class="s0">def </span><span class="s1">generate_expression</span><span class="s2">():</span>
+    <span class="s6">&quot;&quot;&quot;Generate a random arithmetic expression.&quot;&quot;&quot;</span>
+    <span class="s1">num1 </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s3">1</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)  </span><span class="s4"># Random number between 1 and 10</span>
+    <span class="s1">num2 </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">randint</span><span class="s2">(</span><span class="s3">0</span><span class="s2">, </span><span class="s3">10</span><span class="s2">)  </span><span class="s4"># Random number between 0 and 10 (to allow division by zero)</span>
+    <span class="s1">operator </span><span class="s2">= </span><span class="s1">random</span><span class="s2">.</span><span class="s1">choice</span><span class="s2">([</span><span class="s5">'+'</span><span class="s2">, </span><span class="s5">'-'</span><span class="s2">, </span><span class="s5">'*'</span><span class="s2">, </span><span class="s5">'/'</span><span class="s2">])</span>
+    <span class="s1">expression </span><span class="s2">= </span><span class="s5">f&quot;</span><span class="s0">{</span><span class="s1">num1</span><span class="s0">} {</span><span class="s1">operator</span><span class="s0">} {</span><span class="s1">num2</span><span class="s0">}</span><span class="s5">&quot;</span>
+    <span class="s0">return </span><span class="s1">expression</span>
+
+
+<span class="s0">def </span><span class="s1">evaluate_expression</span><span class="s2">(</span><span class="s1">expression</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Evaluate the arithmetic expression and handle exceptions.&quot;&quot;&quot;</span>
+    <span class="s0">try</span><span class="s2">:</span>
+        <span class="s1">result </span><span class="s2">= </span><span class="s1">eval</span><span class="s2">(</span><span class="s1">expression</span><span class="s2">)  </span><span class="s4"># Evaluate the expression</span>
+        <span class="s0">return </span><span class="s1">result</span>
+    <span class="s0">except </span><span class="s1">ZeroDivisionError</span><span class="s2">:</span>
+        <span class="s0">raise </span><span class="s1">ZeroDivisionError</span><span class="s2">(</span><span class="s5">&quot;Error: Division by zero is not allowed.&quot;</span><span class="s2">)</span>
+    <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+        <span class="s0">raise </span><span class="s1">Exception</span><span class="s2">(</span><span class="s5">f&quot;An unexpected error occurred: </span><span class="s0">{</span><span class="s1">e</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s0">for </span><span class="s1">_ </span><span class="s0">in </span><span class="s1">range</span><span class="s2">(</span><span class="s3">5</span><span class="s2">):</span>
+        <span class="s1">expression </span><span class="s2">= </span><span class="s1">generate_expression</span><span class="s2">()</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Generated expression: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s0">try</span><span class="s2">:</span>
+            <span class="s1">result </span><span class="s2">= </span><span class="s1">evaluate_expression</span><span class="s2">(</span><span class="s1">expression</span><span class="s2">)</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Result: </span><span class="s0">{</span><span class="s1">expression</span><span class="s0">} </span><span class="s5">= </span><span class="s0">{</span><span class="s1">result</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+        <span class="s0">except </span><span class="s1">ZeroDivisionError </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s1">e</span><span class="s2">)</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s1">e</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+<span class="s2">------------------- </span><span class="s3">9</span>
+<span class="s1">th </span><span class="s2">- -------------------------</span>
+
+
+<span class="s0">def </span><span class="s1">read_file</span><span class="s2">(</span><span class="s1">file_name</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Function to read a file and handle FileNotFoundError.&quot;&quot;&quot;</span>
+    <span class="s0">try</span><span class="s2">:</span>
+        <span class="s0">with </span><span class="s1">open</span><span class="s2">(</span><span class="s1">file_name</span><span class="s2">, </span><span class="s5">'r'</span><span class="s2">) </span><span class="s0">as </span><span class="s1">file</span><span class="s2">:</span>
+            <span class="s1">content </span><span class="s2">= </span><span class="s1">file</span><span class="s2">.</span><span class="s1">read</span><span class="s2">()</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s1">content</span><span class="s2">)</span>
+    <span class="s0">except </span><span class="s1">FileNotFoundError</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Error: The file '</span><span class="s0">{</span><span class="s1">file_name</span><span class="s0">}</span><span class="s5">' was not found.&quot;</span><span class="s2">)</span>
+    <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;An unexpected error occurred: </span><span class="s0">{</span><span class="s1">e</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s4"># Specify a file name that does not exist</span>
+    <span class="s1">file_name </span><span class="s2">= </span><span class="s5">&quot;non_existent_file.txt&quot;</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Attempting to read the file: </span><span class="s0">{</span><span class="s1">file_name</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s1">read_file</span><span class="s2">(</span><span class="s1">file_name</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+
+<span class="s0">def </span><span class="s1">read_file</span><span class="s2">(</span><span class="s1">file_name</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Function to read a file and handle IOError.&quot;&quot;&quot;</span>
+    <span class="s0">try</span><span class="s2">:</span>
+        <span class="s0">with </span><span class="s1">open</span><span class="s2">(</span><span class="s1">file_name</span><span class="s2">, </span><span class="s5">'r'</span><span class="s2">) </span><span class="s0">as </span><span class="s1">file</span><span class="s2">:</span>
+            <span class="s1">content </span><span class="s2">= </span><span class="s1">file</span><span class="s2">.</span><span class="s1">read</span><span class="s2">()</span>
+            <span class="s1">print</span><span class="s2">(</span><span class="s1">content</span><span class="s2">)</span>
+    <span class="s0">except </span><span class="s1">IOError </span><span class="s0">as </span><span class="s1">e</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;IOError: </span><span class="s0">{</span><span class="s1">e</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s4"># Specify a file name that does not exist</span>
+    <span class="s1">file_name </span><span class="s2">= </span><span class="s5">&quot;non_existent_file.txt&quot;</span>
+    <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Attempting to read the file: </span><span class="s0">{</span><span class="s1">file_name</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s1">read_file</span><span class="s2">(</span><span class="s1">file_name</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+
+
+<span class="s0">class </span><span class="s1">MyClass</span><span class="s2">:</span>
+    <span class="s0">def </span><span class="s1">__init__</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">existing_field </span><span class="s2">= </span><span class="s5">&quot;I exist!&quot;</span>
+
+
+<span class="s0">def </span><span class="s1">access_field</span><span class="s2">(</span><span class="s1">obj</span><span class="s2">, </span><span class="s1">field_name</span><span class="s2">):</span>
+    <span class="s6">&quot;&quot;&quot;Function to access a field of an object and handle AttributeError.&quot;&quot;&quot;</span>
+    <span class="s0">try</span><span class="s2">:</span>
+        <span class="s4"># Attempt to access the specified field</span>
+        <span class="s1">value </span><span class="s2">= </span><span class="s1">getattr</span><span class="s2">(</span><span class="s1">obj</span><span class="s2">, </span><span class="s1">field_name</span><span class="s2">)</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Value of '</span><span class="s0">{</span><span class="s1">field_name</span><span class="s0">}</span><span class="s5">': </span><span class="s0">{</span><span class="s1">value</span><span class="s0">}</span><span class="s5">&quot;</span><span class="s2">)</span>
+    <span class="s0">except </span><span class="s1">AttributeError</span><span class="s2">:</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s5">f&quot;Error: The field '</span><span class="s0">{</span><span class="s1">field_name</span><span class="s0">}</span><span class="s5">' does not exist in the object.&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">def </span><span class="s1">main</span><span class="s2">():</span>
+    <span class="s1">my_object </span><span class="s2">= </span><span class="s1">MyClass</span><span class="s2">()</span>
+
+    <span class="s4"># Attempt to access an existing field</span>
+    <span class="s1">access_field</span><span class="s2">(</span><span class="s1">my_object</span><span class="s2">, </span><span class="s5">&quot;existing_field&quot;</span><span class="s2">)</span>
+
+    <span class="s4"># Attempt to access a non-existing field</span>
+    <span class="s1">access_field</span><span class="s2">(</span><span class="s1">my_object</span><span class="s2">, </span><span class="s5">&quot;non_existing_field&quot;</span><span class="s2">)</span>
+
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s5">&quot;__main__&quot;</span><span class="s2">:</span>
+    <span class="s1">main</span><span class="s2">()</span>
+</pre>
+</body>
+</html>

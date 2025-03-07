@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>abstract.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #5f826b; font-style: italic;}
+.s4 { color: #6aab73;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+abstract.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">abc </span><span class="s0">import </span><span class="s1">ABC</span><span class="s2">, </span><span class="s1">abstractmethod</span>
+<span class="s0">class </span><span class="s1">Animal</span><span class="s2">(</span><span class="s1">ABC</span><span class="s2">):</span>
+
+    <span class="s2">@</span><span class="s1">abstractmethod</span>
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s3">&quot;&quot;&quot;Abstract method that must be implemented in a subclass.&quot;&quot;&quot;</span>
+        <span class="s0">pass</span>
+
+    <span class="s0">def </span><span class="s1">sleep</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s3">&quot;&quot;&quot;Non-abstract method that can be used directly by subclasses.&quot;&quot;&quot;</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;This animal is sleeping.&quot;</span><span class="s2">)</span>
+<span class="s5"># A subclass that implements the abstract method</span>
+<span class="s0">class </span><span class="s1">Dog</span><span class="s2">(</span><span class="s1">Animal</span><span class="s2">):</span>
+
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Woof!&quot;</span><span class="s2">)</span>
+<span class="s5"># Another subclass that implements the abstract method</span>
+<span class="s0">class </span><span class="s1">Cat</span><span class="s2">(</span><span class="s1">Animal</span><span class="s2">):</span>
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Meow!&quot;</span><span class="s2">)</span>
+<span class="s5"># Create instances of Dog and Cat</span>
+<span class="s1">dog </span><span class="s2">= </span><span class="s1">Dog</span><span class="s2">()</span>
+<span class="s1">dog</span><span class="s2">.</span><span class="s1">make_sound</span><span class="s2">()</span>
+<span class="s1">dog</span><span class="s2">.</span><span class="s1">sleep</span><span class="s2">()</span>
+<span class="s1">cat </span><span class="s2">= </span><span class="s1">Cat</span><span class="s2">()</span>
+<span class="s1">cat</span><span class="s2">.</span><span class="s1">make_sound</span><span class="s2">()</span>
+<span class="s1">cat</span><span class="s2">.</span><span class="s1">sleep</span><span class="s2">()</span>
+
+
+
+
+
+
+
+<span class="s0">from </span><span class="s1">abc </span><span class="s0">import </span><span class="s1">ABC</span><span class="s2">, </span><span class="s1">abstractmethod</span>
+<span class="s0">class </span><span class="s1">Animal</span><span class="s2">(</span><span class="s1">ABC</span><span class="s2">):</span>
+    <span class="s2">@</span><span class="s1">abstractmethod</span>
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span>
+    <span class="s0">def </span><span class="s1">move</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;The animal moves.&quot;</span><span class="s2">)</span>
+<span class="s0">class </span><span class="s1">Dog</span><span class="s2">(</span><span class="s1">Animal</span><span class="s2">):</span>
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Woof! Woof!&quot;</span><span class="s2">)</span>
+    <span class="s0">def </span><span class="s1">dog_info</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">move</span><span class="s2">()</span>
+<span class="s1">dog </span><span class="s2">= </span><span class="s1">Dog</span><span class="s2">()</span>
+<span class="s1">dog</span><span class="s2">.</span><span class="s1">make_sound</span><span class="s2">()</span>
+<span class="s1">dog</span><span class="s2">.</span><span class="s1">dog_info</span><span class="s2">()</span>
+
+
+
+
+
+
+
+<span class="s0">from </span><span class="s1">abc </span><span class="s0">import </span><span class="s1">ABC</span><span class="s2">, </span><span class="s1">abstractmethod</span>
+<span class="s0">class </span><span class="s1">Animal</span><span class="s2">(</span><span class="s1">ABC</span><span class="s2">):</span>
+    <span class="s2">@</span><span class="s1">abstractmethod</span>
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span>
+    <span class="s0">def </span><span class="s1">move</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;The animal moves.&quot;</span><span class="s2">)</span>
+<span class="s0">class </span><span class="s1">Dog</span><span class="s2">(</span><span class="s1">Animal</span><span class="s2">):</span>
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Woof! Woof!&quot;</span><span class="s2">)</span>
+    <span class="s0">def </span><span class="s1">create_and_call</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">dog_instance </span><span class="s2">= </span><span class="s1">Dog</span><span class="s2">()</span>
+        <span class="s1">dog_instance</span><span class="s2">.</span><span class="s1">make_sound</span><span class="s2">()</span>
+        <span class="s1">dog_instance</span><span class="s2">.</span><span class="s1">move</span><span class="s2">()</span>
+<span class="s1">dog </span><span class="s2">= </span><span class="s1">Dog</span><span class="s2">()</span>
+<span class="s1">dog</span><span class="s2">.</span><span class="s1">create_and_call</span><span class="s2">()</span>
+
+
+
+
+
+
+<span class="s0">from </span><span class="s1">abc </span><span class="s0">import </span><span class="s1">ABC</span><span class="s2">, </span><span class="s1">abstractmethod</span>
+<span class="s0">class </span><span class="s1">Animal</span><span class="s2">(</span><span class="s1">ABC</span><span class="s2">):</span>
+    <span class="s2">@</span><span class="s1">abstractmethod</span>
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s0">pass</span>
+    <span class="s0">def </span><span class="s1">move</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;The animal moves.&quot;</span><span class="s2">)</span>
+<span class="s0">class </span><span class="s1">Dog</span><span class="s2">(</span><span class="s1">Animal</span><span class="s2">):</span>
+    <span class="s0">def </span><span class="s1">make_sound</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Woof! Woof!&quot;</span><span class="s2">)</span>
+    <span class="s0">def </span><span class="s1">create_and_call</span><span class="s2">(</span><span class="s1">self</span><span class="s2">):</span>
+        <span class="s1">dog_instance </span><span class="s2">= </span><span class="s1">Dog</span><span class="s2">()</span>
+        <span class="s1">dog_instance</span><span class="s2">.</span><span class="s1">move</span><span class="s2">()</span>
+<span class="s1">dog </span><span class="s2">= </span><span class="s1">Dog</span><span class="s2">()</span>
+<span class="s1">dog</span><span class="s2">.</span><span class="s1">create_and_call</span><span class="s2">()</span>
+
+
+</pre>
+</body>
+</html>

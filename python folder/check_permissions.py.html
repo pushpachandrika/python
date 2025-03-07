@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>check_permissions.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+check_permissions.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">os</span>
+
+<span class="s1">file_name </span><span class="s2">= </span><span class="s3">&quot;sample.txt&quot;</span>
+
+<span class="s4"># Check read and write permissions</span>
+<span class="s1">read_access </span><span class="s2">= </span><span class="s1">os</span><span class="s2">.</span><span class="s1">access</span><span class="s2">(</span><span class="s1">file_name</span><span class="s2">, </span><span class="s1">os</span><span class="s2">.</span><span class="s1">R_OK</span><span class="s2">)</span>
+<span class="s1">write_access </span><span class="s2">= </span><span class="s1">os</span><span class="s2">.</span><span class="s1">access</span><span class="s2">(</span><span class="s1">file_name</span><span class="s2">, </span><span class="s1">os</span><span class="s2">.</span><span class="s1">W_OK</span><span class="s2">)</span>
+
+<span class="s1">print</span><span class="s2">(</span><span class="s3">f&quot;Read Access: </span><span class="s0">{</span><span class="s3">'Yes' </span><span class="s0">if </span><span class="s1">read_access </span><span class="s0">else </span><span class="s3">'No'</span><span class="s0">}</span><span class="s3">&quot;</span><span class="s2">)</span>
+<span class="s1">print</span><span class="s2">(</span><span class="s3">f&quot;Write Access: </span><span class="s0">{</span><span class="s3">'Yes' </span><span class="s0">if </span><span class="s1">write_access </span><span class="s0">else </span><span class="s3">'No'</span><span class="s0">}</span><span class="s3">&quot;</span><span class="s2">)</span></pre>
+</body>
+</html>

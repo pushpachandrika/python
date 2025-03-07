@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>access modifier.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #cf8e6d;}
+.s2 { color: #bcbec4;}
+.s3 { color: #2aacb8;}
+.s4 { color: #6aab73;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+access modifier.py</font>
+</center></td></tr></table>
+<pre>
+<span class="s1">class </span><span class="s0">Parent</span><span class="s2">:</span>
+    <span class="s0">__id </span><span class="s2">= </span><span class="s3">100</span>
+    <span class="s0">__name </span><span class="s2">= </span><span class="s4">&quot;John&quot;</span>
+
+    <span class="s1">def </span><span class="s0">__private_method</span><span class="s2">(</span><span class="s0">self</span><span class="s2">):  </span><span class="s5"># Private method</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;This is a private method&quot;</span><span class="s2">)</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;ID: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">__id</span><span class="s1">}</span><span class="s4">, Name: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">__name</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+    <span class="s1">def </span><span class="s0">main_method</span><span class="s2">(</span><span class="s0">self</span><span class="s2">):</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Inside main method:&quot;</span><span class="s2">)</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;Accessing private fields - ID: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">__id</span><span class="s1">}</span><span class="s4">, Name: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">__name</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+        <span class="s0">self</span><span class="s2">.</span><span class="s0">__private_method</span><span class="s2">()  </span><span class="s5"># Calling private method</span>
+
+
+<span class="s1">class </span><span class="s0">Child</span><span class="s2">(</span><span class="s0">Parent</span><span class="s2">):</span>
+    <span class="s1">def </span><span class="s0">access_private</span><span class="s2">(</span><span class="s0">self</span><span class="s2">):</span>
+        <span class="s1">try</span><span class="s2">:</span>
+            <span class="s0">print</span><span class="s2">(</span><span class="s0">self</span><span class="s2">.</span><span class="s0">__id</span><span class="s2">)  </span><span class="s5"># Attempt to access private field</span>
+        <span class="s1">except </span><span class="s0">AttributeError </span><span class="s1">as </span><span class="s0">e</span><span class="s2">:</span>
+            <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;Cannot access private field: </span><span class="s1">{</span><span class="s0">e</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+        <span class="s1">try</span><span class="s2">:</span>
+            <span class="s0">self</span><span class="s2">.</span><span class="s0">__private_method</span><span class="s2">()  </span><span class="s5"># Attempt to access private method</span>
+        <span class="s1">except </span><span class="s0">AttributeError </span><span class="s1">as </span><span class="s0">e</span><span class="s2">:</span>
+            <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;Cannot access private method: </span><span class="s1">{</span><span class="s0">e</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+
+<span class="s5"># Testing</span>
+<span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Testing Private Fields and Methods:&quot;</span><span class="s2">)</span>
+<span class="s0">parent </span><span class="s2">= </span><span class="s0">Parent</span><span class="s2">()</span>
+<span class="s0">parent</span><span class="s2">.</span><span class="s0">main_method</span><span class="s2">()</span>
+<span class="s0">child </span><span class="s2">= </span><span class="s0">Child</span><span class="s2">()</span>
+<span class="s0">child</span><span class="s2">.</span><span class="s0">access_private</span><span class="s2">()</span>
+<span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s1">\n</span><span class="s4">&quot; </span><span class="s2">+ </span><span class="s4">&quot;-&quot; </span><span class="s2">* </span><span class="s3">50 </span><span class="s2">+ </span><span class="s4">&quot;</span><span class="s1">\n</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+
+<span class="s5"># 2. Class with Protected Fields and Methods</span>
+<span class="s1">class </span><span class="s0">Base</span><span class="s2">:</span>
+    <span class="s0">_age </span><span class="s2">= </span><span class="s3">25  </span><span class="s5"># Protected field</span>
+    <span class="s0">_salary </span><span class="s2">= </span><span class="s3">50000  </span><span class="s5"># Protected field</span>
+
+    <span class="s1">def </span><span class="s0">_protected_method</span><span class="s2">(</span><span class="s0">self</span><span class="s2">):  </span><span class="s5"># Protected method</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;Protected method: Age: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">_age</span><span class="s1">}</span><span class="s4">, Salary: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">_salary</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+
+<span class="s5"># Same package class</span>
+<span class="s1">class </span><span class="s0">SamePackage</span><span class="s2">:</span>
+    <span class="s1">def </span><span class="s0">access_protected</span><span class="s2">(</span><span class="s0">self</span><span class="s2">, </span><span class="s0">base_obj</span><span class="s2">):</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Accessing from same package:&quot;</span><span class="s2">)</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;Age: </span><span class="s1">{</span><span class="s0">base_obj</span><span class="s2">.</span><span class="s0">_age</span><span class="s1">}</span><span class="s4">, Salary: </span><span class="s1">{</span><span class="s0">base_obj</span><span class="s2">.</span><span class="s0">_salary</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+        <span class="s0">base_obj</span><span class="s2">.</span><span class="s0">_protected_method</span><span class="s2">()</span>
+
+
+<span class="s5"># Different package simulation (in Python, we'll just use a different class)</span>
+<span class="s1">class </span><span class="s0">DifferentPackageChild</span><span class="s2">(</span><span class="s0">Base</span><span class="s2">):</span>
+    <span class="s1">def </span><span class="s0">access_from_child</span><span class="s2">(</span><span class="s0">self</span><span class="s2">):</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Accessing from child class (different package):&quot;</span><span class="s2">)</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;Age: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">_age</span><span class="s1">}</span><span class="s4">, Salary: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">_salary</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+        <span class="s0">self</span><span class="s2">.</span><span class="s0">_protected_method</span><span class="s2">()</span>
+
+
+<span class="s1">class </span><span class="s0">DifferentPackage</span><span class="s2">:</span>
+    <span class="s1">def </span><span class="s0">access_protected</span><span class="s2">(</span><span class="s0">self</span><span class="s2">, </span><span class="s0">base_obj</span><span class="s2">):</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Accessing from different package:&quot;</span><span class="s2">)</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;Age: </span><span class="s1">{</span><span class="s0">base_obj</span><span class="s2">.</span><span class="s0">_age</span><span class="s1">}</span><span class="s4">, Salary: </span><span class="s1">{</span><span class="s0">base_obj</span><span class="s2">.</span><span class="s0">_salary</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+        <span class="s0">base_obj</span><span class="s2">.</span><span class="s0">_protected_method</span><span class="s2">()</span>
+
+
+<span class="s5"># Testing Protected</span>
+<span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Testing Protected Fields and Methods:&quot;</span><span class="s2">)</span>
+<span class="s0">base </span><span class="s2">= </span><span class="s0">Base</span><span class="s2">()</span>
+<span class="s0">same_pkg </span><span class="s2">= </span><span class="s0">SamePackage</span><span class="s2">()</span>
+<span class="s0">same_pkg</span><span class="s2">.</span><span class="s0">access_protected</span><span class="s2">(</span><span class="s0">base</span><span class="s2">)</span>
+
+<span class="s0">diff_child </span><span class="s2">= </span><span class="s0">DifferentPackageChild</span><span class="s2">()</span>
+<span class="s0">diff_child</span><span class="s2">.</span><span class="s0">access_from_child</span><span class="s2">()</span>
+
+<span class="s0">diff_pkg </span><span class="s2">= </span><span class="s0">DifferentPackage</span><span class="s2">()</span>
+<span class="s0">diff_pkg</span><span class="s2">.</span><span class="s0">access_protected</span><span class="s2">(</span><span class="s0">base</span><span class="s2">)</span>
+<span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s1">\n</span><span class="s4">&quot; </span><span class="s2">+ </span><span class="s4">&quot;-&quot; </span><span class="s2">* </span><span class="s3">50 </span><span class="s2">+ </span><span class="s4">&quot;</span><span class="s1">\n</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+
+<span class="s5"># 3. Class with Public Fields and Methods</span>
+<span class="s1">class </span><span class="s0">PublicClass</span><span class="s2">:</span>
+    <span class="s0">id </span><span class="s2">= </span><span class="s3">1  </span><span class="s5"># Public field</span>
+    <span class="s0">name </span><span class="s2">= </span><span class="s4">&quot;Public&quot;  </span><span class="s5"># Public field</span>
+
+    <span class="s1">def </span><span class="s0">public_method</span><span class="s2">(</span><span class="s0">self</span><span class="s2">):  </span><span class="s5"># Public method</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;Public method: ID: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">id</span><span class="s1">}</span><span class="s4">, Name: </span><span class="s1">{</span><span class="s0">self</span><span class="s2">.</span><span class="s0">name</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+
+
+<span class="s5"># Accessing from same package</span>
+<span class="s1">class </span><span class="s0">SamePackageAccess</span><span class="s2">:</span>
+    <span class="s1">def </span><span class="s0">access_public</span><span class="s2">(</span><span class="s0">self</span><span class="s2">, </span><span class="s0">pub_obj</span><span class="s2">):</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Accessing public from same package:&quot;</span><span class="s2">)</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;ID: </span><span class="s1">{</span><span class="s0">pub_obj</span><span class="s2">.</span><span class="s0">id</span><span class="s1">}</span><span class="s4">, Name: </span><span class="s1">{</span><span class="s0">pub_obj</span><span class="s2">.</span><span class="s0">name</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+        <span class="s0">pub_obj</span><span class="s2">.</span><span class="s0">public_method</span><span class="s2">()</span>
+
+
+<span class="s5"># Accessing from different package</span>
+<span class="s1">class </span><span class="s0">DifferentPackageAccess</span><span class="s2">:</span>
+    <span class="s1">def </span><span class="s0">access_public</span><span class="s2">(</span><span class="s0">self</span><span class="s2">, </span><span class="s0">pub_obj</span><span class="s2">):</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Accessing public from different package:&quot;</span><span class="s2">)</span>
+        <span class="s0">print</span><span class="s2">(</span><span class="s4">f&quot;ID: </span><span class="s1">{</span><span class="s0">pub_obj</span><span class="s2">.</span><span class="s0">id</span><span class="s1">}</span><span class="s4">, Name: </span><span class="s1">{</span><span class="s0">pub_obj</span><span class="s2">.</span><span class="s0">name</span><span class="s1">}</span><span class="s4">&quot;</span><span class="s2">)</span>
+        <span class="s0">pub_obj</span><span class="s2">.</span><span class="s0">public_method</span><span class="s2">()</span>
+
+
+<span class="s5"># Testing Public</span>
+<span class="s0">print</span><span class="s2">(</span><span class="s4">&quot;Testing Public Fields and Methods:&quot;</span><span class="s2">)</span>
+<span class="s0">pub </span><span class="s2">= </span><span class="s0">PublicClass</span><span class="s2">()</span>
+<span class="s0">same_access </span><span class="s2">= </span><span class="s0">SamePackageAccess</span><span class="s2">()</span>
+<span class="s0">same_access</span><span class="s2">.</span><span class="s0">access_public</span><span class="s2">(</span><span class="s0">pub</span><span class="s2">)</span>
+
+<span class="s0">diff_access </span><span class="s2">= </span><span class="s0">DifferentPackageAccess</span><span class="s2">()</span>
+<span class="s0">diff_access</span><span class="s2">.</span><span class="s0">access_public</span><span class="s2">(</span><span class="s0">pub</span><span class="s2">)</span></pre>
+</body>
+</html>

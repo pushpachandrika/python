@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>dictionary.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #cf8e6d;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+dictionary.py</font>
+</center></td></tr></table>
+<pre><span class="s0">students </span><span class="s1">= {</span>
+    <span class="s2">&quot;S001&quot;</span><span class="s1">: </span><span class="s2">&quot;Alice Johnson&quot;</span><span class="s1">,</span>
+    <span class="s2">&quot;S002&quot;</span><span class="s1">: </span><span class="s2">&quot;Bob Smith&quot;</span><span class="s1">,</span>
+    <span class="s2">&quot;S003&quot;</span><span class="s1">: </span><span class="s2">&quot;Charlie Brown&quot;</span><span class="s1">,</span>
+    <span class="s2">&quot;S004&quot;</span><span class="s1">: </span><span class="s2">&quot;Diana Miller&quot;</span><span class="s1">,</span>
+    <span class="s2">&quot;S005&quot;</span><span class="s1">: </span><span class="s2">&quot;Ethan Davis&quot;</span>
+<span class="s1">}</span>
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Original dictionary:&quot;</span><span class="s1">, </span><span class="s0">students</span><span class="s1">)</span>
+
+
+<span class="s0">students</span><span class="s1">[</span><span class="s2">&quot;S006&quot;</span><span class="s1">] = </span><span class="s2">&quot;Fiona White&quot;</span>
+<span class="s0">students</span><span class="s1">.</span><span class="s0">update</span><span class="s1">({</span><span class="s2">&quot;S007&quot;</span><span class="s1">: </span><span class="s2">&quot;George Black&quot;</span><span class="s1">})</span>
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">After adding values:&quot;</span><span class="s1">, </span><span class="s0">students</span><span class="s1">)</span>
+
+
+<span class="s0">students</span><span class="s1">[</span><span class="s2">&quot;S001&quot;</span><span class="s1">] = </span><span class="s2">&quot;Alice Thompson&quot;</span>
+<span class="s0">students</span><span class="s1">.</span><span class="s0">update</span><span class="s1">({</span><span class="s2">&quot;S002&quot;</span><span class="s1">: </span><span class="s2">&quot;Robert Smith&quot;</span><span class="s1">})</span>
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">After updating values:&quot;</span><span class="s1">, </span><span class="s0">students</span><span class="s1">)</span>
+
+
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">Accessing specific value:&quot;</span><span class="s1">, </span><span class="s0">students</span><span class="s1">[</span><span class="s2">&quot;S003&quot;</span><span class="s1">])</span>
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Using get method:&quot;</span><span class="s1">, </span><span class="s0">students</span><span class="s1">.</span><span class="s0">get</span><span class="s1">(</span><span class="s2">&quot;S004&quot;</span><span class="s1">))</span>
+
+
+<span class="s0">nested_students </span><span class="s1">= {</span>
+    <span class="s2">&quot;S001&quot;</span><span class="s1">: {</span><span class="s2">&quot;name&quot;</span><span class="s1">: </span><span class="s2">&quot;Alice Thompson&quot;</span><span class="s1">, </span><span class="s2">&quot;grade&quot;</span><span class="s1">: </span><span class="s2">&quot;A&quot;</span><span class="s1">},</span>
+    <span class="s2">&quot;S002&quot;</span><span class="s1">: {</span><span class="s2">&quot;name&quot;</span><span class="s1">: </span><span class="s2">&quot;Robert Smith&quot;</span><span class="s1">, </span><span class="s2">&quot;grade&quot;</span><span class="s1">: </span><span class="s2">&quot;B&quot;</span><span class="s1">},</span>
+    <span class="s2">&quot;S003&quot;</span><span class="s1">: {</span><span class="s2">&quot;name&quot;</span><span class="s1">: </span><span class="s2">&quot;Charlie Brown&quot;</span><span class="s1">, </span><span class="s2">&quot;grade&quot;</span><span class="s1">: </span><span class="s2">&quot;A-&quot;</span><span class="s1">},</span>
+    <span class="s2">&quot;S004&quot;</span><span class="s1">: {</span><span class="s2">&quot;name&quot;</span><span class="s1">: </span><span class="s2">&quot;Diana Miller&quot;</span><span class="s1">, </span><span class="s2">&quot;grade&quot;</span><span class="s1">: </span><span class="s2">&quot;B+&quot;</span><span class="s1">},</span>
+    <span class="s2">&quot;S005&quot;</span><span class="s1">: {</span><span class="s2">&quot;name&quot;</span><span class="s1">: </span><span class="s2">&quot;Ethan Davis&quot;</span><span class="s1">, </span><span class="s2">&quot;grade&quot;</span><span class="s1">: </span><span class="s2">&quot;A&quot;</span><span class="s1">}</span>
+<span class="s1">}</span>
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">Nested dictionary:&quot;</span><span class="s1">, </span><span class="s0">nested_students</span><span class="s1">)</span>
+
+
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">Nested value - name:&quot;</span><span class="s1">, </span><span class="s0">nested_students</span><span class="s1">[</span><span class="s2">&quot;S001&quot;</span><span class="s1">][</span><span class="s2">&quot;name&quot;</span><span class="s1">])</span>
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Nested value - grade:&quot;</span><span class="s1">, </span><span class="s0">nested_students</span><span class="s1">[</span><span class="s2">&quot;S002&quot;</span><span class="s1">][</span><span class="s2">&quot;grade&quot;</span><span class="s1">])</span>
+
+
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">Keys in original dictionary:&quot;</span><span class="s1">, </span><span class="s0">students</span><span class="s1">.</span><span class="s0">keys</span><span class="s1">())</span>
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;Keys in nested dictionary:&quot;</span><span class="s1">, </span><span class="s0">nested_students</span><span class="s1">.</span><span class="s0">keys</span><span class="s1">())</span>
+
+
+<span class="s3">del </span><span class="s0">students</span><span class="s1">[</span><span class="s2">&quot;S006&quot;</span><span class="s1">]</span>
+<span class="s0">students</span><span class="s1">.</span><span class="s0">pop</span><span class="s1">(</span><span class="s2">&quot;S007&quot;</span><span class="s1">)</span>
+<span class="s0">print</span><span class="s1">(</span><span class="s2">&quot;</span><span class="s3">\n</span><span class="s2">After deleting values:&quot;</span><span class="s1">, </span><span class="s0">students</span><span class="s1">)</span></pre>
+</body>
+</html>
